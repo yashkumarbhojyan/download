@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Link generate</title>
+</head>
+
+<style>
+  .header {
+    height: 100px;
+    width: 100%;
+    background-color: #ffccef;
+    line-height: 80px;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+  }
+
+  .main {
+    height: 85vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+
+
+  }
+
+  .box {
+    height: 500px;
+    width: 600px;
+    background-color: lightblue;
+    display: grid;
+    place-items: center;
+    /* position: relative;
+    top: 10px; */
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 5px rgba(98, 98, 100, 0.2);
+
+  }
+
+  #timer {
+    height: 90px;
+    width: 90px;
+    background-color: aqua;
+    display: grid;
+    place-content: center;
+    border: 2px solid aquamarine;
+    border-radius: 50%;
+    color: #000;
+    font-size: 26px;
+    font-weight: 800;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+  }
+
+  #btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: aqua;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    text-decoration: none;
+  }
+</style>
+
+<header class="header">
+  #Link generate
+</header>
+
+<div class="main">
+  <div class="box">
+    <div id="timer">10</div>
+    <p id="paragraph"><b>Generate your Link</b></p>
+    <button id="btn"><a id="Link">GetLink</a> </button>
+    <button id="download"><a href="Kal Ho Na Ho (2003) Hindi 720p BluRay x265 HEVC.mkv" download="Kal Ho Na Ho (2003) Hindi 720p BluRay x265 HEVC.mkv">DOWNLOAD</a></button>
+  </div>
+</div>
+
+<body>
+  <script>
+    const timer = document.getElementById("timer");
+    let Link = document.getElementById("Link");
+    let btn = document.getElementById("btn");
+    let myLink = document.createAttribute("href");
+    let p = document.getElementById("paragraph");
+    myLink.value = "https://yashkumarbhojyan.github.io/Videotube/";
+
+    var counter = 10;
+    let cb = () => {
+      let x = setInterval(getLink, 1000);
+
+
+      function getLink() {
+
+        if (counter > 0) {
+          timer.textContent = counter - 1;
+          counter--;
+        } else {
+          clearInterval(x);
+          timer.style.color = "#fff";
+          timer.style.backgroundColor = "green";
+          timer.style.opacity = "0.7";
+          timer.style.border = " 2px solid green";
+          Link.setAttributeNode(myLink);
+          Link.style.color = "white";
+          btn.style.backgroundColor = "green";
+          p.innerText = "Get your Link";
+          p.style.color = "green";
+          p.style.fontSize = "30px";
+        }
+
+      }
+    }
+
+    let faltu = () => {
+      cb();
+      btn.removeEventListener("click", faltu);
+
+    };
+    btn.addEventListener('click', faltu);
+
+
+
+  </script>
+
+</body>
+
+</html>
